@@ -1,0 +1,18 @@
+---
+title: "Faster Incident Triage with Datadog, Splunk, and OpenSearch"
+slug: "observability-with-datadog-and-opensearch"
+summary: "Structured logging, correlation IDs, and dashboard habits that shorten mean time to resolution in production."
+date: "2026-05-04"
+tags: ["observability", "production", "devops"]
+draft: false
+---
+
+## Logs Need Structure Before an Incident Starts
+
+Searching raw, unstructured text during a production issue wastes critical minutes. Standardizing log fields—timestamp, environment, service name, correlation ID, and error code—makes **Datadog**, **Splunk**, **Kibana**, and **OpenSearch Dashboards** dramatically more effective.
+
+## Practical Triage Habits
+
+1. **Correlate requests end-to-end:** Propagate a request or batch ID from the React client through backend services and background workers.
+2. **Watch trends, not just spikes:** Monitor error rates, retry counts, and latency percentiles alongside throughput.
+3. **Validate fixes with tests:** Every production bug resolved should leave behind a regression test or clearer guardrails.

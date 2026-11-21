@@ -1,0 +1,35 @@
+---
+title: "Designing Safe Large-Scale Data Migrations to AWS S3"
+slug: "large-scale-s3-data-migration-patterns"
+summary: "Practical patterns for idempotent batching, state tracking in MongoDB, and operational controls when moving millions of records to S3."
+date: "2026-03-10"
+tags: ["aws", "mongodb", "architecture"]
+draft: false
+cover: "/images/project-migration.svg"
+---
+
+## Why Migrations Fail Silently
+
+Moving millions of documents or legacy records into **AWS S3** rarely fails because of a single API call. Failures typically happen at the boundaries: partial batch retries, duplicate writes, ambiguous failure states, or lack of operator visibility when a worker stalls.
+
+### 1. Track Every Batch Explicitly
+
+Store explicit batch and record state transitions in your database (such as MongoDB) so retries know exactly what succeeded and what still needs work:
+
+```json
+{
+  "jobId": "mig-2026-03-01",
+  "partitionKey": "part-042",
+  "status": "PARTIAL_RETRY",
+  "processedCount": 9840,
+  "errorCount": 12
+}
+```
+
+### 2. Design for Idempotency
+
+Network timeouts happen in distributed systems. Ensure upload keys, checksums, and state updates are idempotent so re-running a failed slice never corrupts target objects.
+
+### 3. Give Operators Clear Controls
+
+A good migration pipeline pairs reliable background workers with an operations view where engineers can inspect throughput, pause or trigger batches, and isolate bad records without halting healthy partitions.

@@ -1,0 +1,46 @@
+---
+title: "Enterprise Cloud Document Migration & Control Console"
+slug: "cloud-document-migration-suite"
+summary: "React and Java migration control console orchestrating large-scale legacy document migrations to AWS S3 with MongoDB state tracking."
+date: "2026-02-15"
+tags: ["aws", "react", "java", "mongodb"]
+stack: ["React.js", "JavaScript", "Java", "MongoDB", "AWS S3", "Datadog", "Splunk", "Jest", "JUnit"]
+featured: true
+cover: "/images/project-migration.svg"
+repoUrl: "https://github.com"
+---
+
+## Problem
+
+Legacy enterprise document archives stored in mainframe environments lacked elastic storage scalability, real-time batch visibility, and automated retry controls. Operators needed a reliable way to trigger migration schedules, inspect batch progress across millions of records, and diagnose failures quickly without manual log digging.
+
+## Approach
+
+- **Control Dashboard:** Built a responsive React.js operations console for migration schedule management, batch triggering, controller status checks, and live progress tracking.
+- **Backend Orchestration:** Implemented Java services to validate records, coordinate migration jobs, and persist batch metadata and audit state in MongoDB.
+- **Cloud Storage & Observability:** Integrated AWS S3 for durable document storage alongside Datadog and Splunk dashboards for telemetry and log analysis.
+
+<Callout title="Testing & Reliability" tone="tip">
+  Paired JUnit backend service tests with Jest UI component suites to prevent regressions across batch scheduling and status state transitions.
+</Callout>
+
+```ts
+export interface MigrationBatchStatus {
+  batchId: string;
+  totalRecords: number;
+  migratedRecords: number;
+  failedRecords: number;
+  state: "QUEUED" | "RUNNING" | "COMPLETED" | "PAUSED";
+}
+
+export function computeCompletionPercent(batch: MigrationBatchStatus): number {
+  if (batch.totalRecords <= 0) return 0;
+  return Math.min(100, Math.round((batch.migratedRecords / batch.totalRecords) * 100));
+}
+```
+
+## Results
+
+- Enabled controlled, auditable migration of millions of document records into AWS S3.
+- Reduced operational troubleshooting friction through centralized monitoring and structured error logs.
+- Maintained predictable release quality with automated unit testing and Agile sprint delivery.

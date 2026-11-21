@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Cloud document migration architecture graphic">
+  <rect width="960" height="540" rx="20" fill="#0f172a" />
+  <rect x="80" y="96" width="240" height="140" rx="12" fill="#1e293b" stroke="#60a5fa" stroke-width="2" />
+  <text x="200" y="160" text-anchor="middle" fill="#f8fafc" font-family="monospace" font-size="18">Legacy Archive</text>
+  <text x="200" y="190" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="14">Batch Validation</text>
+  <path d="M320 166 H410" stroke="#60a5fa" stroke-width="3" />
+  <rect x="410" y="96" width="240" height="140" rx="12" fill="#172554" stroke="#93c5fd" stroke-width="2" />
+  <text x="530" y="160" text-anchor="middle" fill="#eff6ff" font-family="monospace" font-size="18">Control &amp; MongoDB</text>
+  <text x="530" y="190" text-anchor="middle" fill="#bfdbfe" font-family="sans-serif" font-size="14">React Console + Java API</text>
+  <path d="M650 166 H730" stroke="#60a5fa" stroke-width="3" />
+  <rect x="730" y="96" width="150" height="140" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="2" />
+  <text x="805" y="160" text-anchor="middle" fill="#f8fafc" font-family="monospace" font-size="18">AWS S3</text>
+  <text x="805" y="190" text-anchor="middle" fill="#6ee7b7" font-family="sans-serif" font-size="14">Object Store</text>
+  <rect x="80" y="296" width="800" height="144" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2" />
+  <text x="116" y="344" fill="#f8fafc" font-family="monospace" font-size="16">Observability &amp; Quality Gates</text>
+  <text x="116" y="376" fill="#94a3b8" font-family="sans-serif" font-size="15">Datadog · Splunk · Jest · JUnit · Automated Batch Retry Controls</text>
+</svg>

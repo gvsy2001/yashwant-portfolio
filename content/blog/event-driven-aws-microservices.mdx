@@ -1,0 +1,20 @@
+---
+title: "Event-Driven Microservices with Node.js, Java, and AWS"
+slug: "event-driven-aws-microservices"
+summary: "How combining synchronous APIs with SQS, SNS, and Lambda keeps high-concurrency web services responsive."
+date: "2025-12-18"
+tags: ["aws", "node", "java", "microservices"]
+draft: false
+---
+
+## Synchronous vs. Asynchronous Boundaries
+
+Not every step in a user request needs to block the HTTP response. Keeping synchronous endpoints focused on validation and core reads—while pushing downstream fan-out and background work to **AWS SQS**, **SNS**, and **Lambda**—keeps latency predictable during peak traffic.
+
+<Callout title="Keep Payloads Lean" tone="tip">
+  Publish identifiers and metadata in events rather than oversized blobs, and fetch heavy payloads on demand from storage or database stores.
+</Callout>
+
+## Consistent Contracts Across Services
+
+Whether a service is written in **Node.js/Express** or **Java**, enforce clear payload schemas, structured correlation IDs, and thorough unit tests (**Jest** and **JUnit**) before deploying changes.
