@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Gannavarapu Venkata Sai Yashwant", url: siteUrl }],
   creator: "Gannavarapu Venkata Sai Yashwant",
   verification: {
-    google: "googlea07ff67da47282df.html",
+    google: "pcz5NUMyvPi4Ak7nkMGcbKboKGmdEMYPeRM92_l1YSw",
   },
   openGraph: {
     type: "website",
